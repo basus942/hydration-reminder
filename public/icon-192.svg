@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8878FF" />
+      <stop offset="100%" stop-color="#5547E8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#5547E8" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <rect width="192" height="192" rx="48" fill="#F3EEF9" />
+  <path d="M96 32 C96 32 52 92 52 122 C52 146.3 71.7 166 96 166 C120.3 166 140 146.3 140 122 C140 92 96 32 96 32 Z" fill="url(#waterGrad)" filter="url(#shadow)" />
+  <circle cx="82" cy="115" r="10" fill="#FFFFFF" fill-opacity="0.3" />
+</svg>

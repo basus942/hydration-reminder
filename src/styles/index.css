@@ -1,0 +1,141 @@
+/* --- Root Design Tokens & Reset --- */
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+  /* Color Palette matching reference UI */
+  --bg-app: #EFE8F8;
+  --bg-card: #FFFFFF;
+  --bg-nav: #221F4B;
+  --bg-nav-active: #34306D;
+  
+  --text-primary: #1E1B4B;
+  --text-secondary: #6B6587;
+  --text-muted: #A5A1BE;
+  --text-white: #FFFFFF;
+
+  /* Water & Liquid Colors */
+  --liquid-primary: #6E62E5;
+  --liquid-secondary: #8B80F9;
+  --liquid-light: #A59BFF;
+  --liquid-grad: linear-gradient(180deg, #7C70FF 0%, #584BD6 100%);
+  
+  /* Quick Add Card Pastel Colors */
+  --card-water-bg: #EEECFE;
+  --card-bottle-bg: #F4F4F8;
+  --card-tea-bg: #FFF7E6;
+  --card-pitcher-bg: #FDF0EA;
+
+  --shadow-sm: 0 4px 12px rgba(34, 31, 75, 0.05);
+  --shadow-md: 0 8px 24px rgba(34, 31, 75, 0.08);
+  --shadow-lg: 0 16px 36px rgba(34, 31, 75, 0.12);
+  --shadow-nav: 0 12px 32px rgba(30, 27, 75, 0.25);
+  
+  --radius-xl: 36px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --radius-pill: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  background: radial-gradient(circle at 50% 0%, #F6F1FD 0%, #ECE3F8 60%, #E2D7F3 100%);
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* App Shell Mobile Frame Container */
+.app-container {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  height: 100dvh;
+  max-height: 920px;
+  background-color: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(78, 68, 120, 0.18);
+}
+
+@media (min-width: 480px) {
+  .app-container {
+    height: 92vh;
+    border-radius: var(--radius-xl);
+    border: 8px solid #FFFFFF;
+  }
+}
+
+.view-viewport {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbars */
+.view-viewport::-webkit-scrollbar {
+  display: none;
+}
+.view-viewport {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Accessible focus styling */
+button, input, select {
+  font-family: inherit;
+  outline: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--liquid-primary);
+  outline-offset: 2px;
+}
+
+/* Hide ugly number spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+

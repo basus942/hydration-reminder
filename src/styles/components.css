@@ -1,0 +1,908 @@
+/* ==========================================================================
+   COMPONENT STYLES (Matching UI Reference Mockup)
+   ========================================================================== */
+
+/* --- Top Header & Action Buttons --- */
+.screen-header {
+  padding: max(20px, env(safe-area-inset-top)) 24px 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.header-greeting-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.header-title-centered {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.header-btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #EBE6F4;
+  box-shadow: 0 4px 12px rgba(110, 98, 229, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.header-btn-circle:hover {
+  background: #F8F6FD;
+  transform: rotate(15deg);
+}
+
+/* --- Fluid Wave View (Left Screen) --- */
+.fluid-view-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.fluid-stat-header {
+  padding: 6px 24px 0 24px;
+  text-align: center;
+  z-index: 10;
+}
+
+.fluid-amount-display {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.fluid-amount-unit {
+  font-size: 32px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.fluid-remaining-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* Liquid Canvas and Avatar Area */
+.liquid-body-container {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.liquid-fill-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: var(--liquid-grad);
+  z-index: 2;
+}
+
+/* SVG Waves atop the liquid */
+.wave-svg-container {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  width: 200%;
+  height: 50px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wave-layer-back {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  fill: rgba(139, 128, 249, 0.6);
+  animation: waveMoveReverse 9s ease-in-out infinite alternate;
+}
+
+.wave-layer-front {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  fill: #6E62E5;
+  animation: waveMove 7s ease-in-out infinite alternate;
+}
+
+.wave-contour-line {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 200%;
+  height: 30px;
+  animation: waveMove 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Floating Percentage Tag on the wave line */
+.liquid-percentage-tag {
+  position: absolute;
+  top: -38px;
+  left: 24px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+  z-index: 8;
+  pointer-events: none;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Floating Character / Avatar inside water */
+.character-avatar-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 220px;
+  z-index: 3;
+  pointer-events: none;
+  animation: characterFloat 4s ease-in-out infinite;
+  transition: bottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animated Bubbles */
+.bubble {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.15));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: bubbleRise 3.5s infinite ease-in;
+}
+
+.bubble-1 { width: 14px; height: 14px; left: 35%; bottom: 40px; animation-delay: 0.2s; }
+.bubble-2 { width: 22px; height: 22px; left: 58%; bottom: 60px; animation-delay: 1.2s; }
+.bubble-3 { width: 10px; height: 10px; left: 45%; bottom: 25px; animation-delay: 2.1s; }
+.bubble-4 { width: 18px; height: 18px; left: 25%; bottom: 55px; animation-delay: 0.8s; }
+.bubble-5 { width: 12px; height: 12px; left: 70%; bottom: 30px; animation-delay: 1.7s; }
+
+/* Floating Plus (+) Action Button */
+.floating-plus-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: var(--text-primary);
+  box-shadow: 0 10px 28px rgba(30, 27, 75, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-plus-btn:hover {
+  transform: translateX(-50%) scale(1.06);
+  box-shadow: 0 14px 34px rgba(30, 27, 75, 0.45);
+}
+
+.floating-plus-btn:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+/* --- Hydration Ring View (Right Screen) --- */
+.ring-view-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 110px 20px;
+  overflow-y: auto;
+}
+
+.ring-chart-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0 14px 0;
+  position: relative;
+}
+
+.ring-svg-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring-center-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ring-center-percent {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.ring-center-amount {
+  font-family: var(--font-primary);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+
+.ring-center-remaining {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Daily Glass Count Pill Badge */
+.glass-counter-badge {
+  align-self: center;
+  background: #F3EEF9;
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--liquid-primary);
+  margin-bottom: 20px;
+}
+
+/* Quick Add Grid (2x2) */
+.quick-add-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.quick-add-card {
+  border-radius: var(--radius-lg);
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.quick-add-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.quick-add-card.card-water {
+  background-color: var(--card-water-bg);
+}
+
+.quick-add-card.card-bottle {
+  background-color: var(--card-bottle-bg);
+}
+
+.quick-add-card.card-tea {
+  background-color: var(--card-tea-bg);
+}
+
+.quick-add-card.card-pitcher {
+  background-color: var(--card-pitcher-bg);
+}
+
+.card-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card-amount-label {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-type-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}
+
+/* Custom Add Strip */
+.custom-add-strip {
+  width: 100%;
+  background: #F8F6FD;
+  border: 1.5px dashed #DCD6EE;
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--liquid-primary);
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s ease;
+}
+
+.custom-add-strip:hover {
+  background: #EEECFE;
+}
+
+/* --- History & Settings View --- */
+.settings-view-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 110px 20px;
+  overflow-y: auto;
+}
+
+.settings-section-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #F0ECF8;
+}
+
+.settings-section-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Goal Slider & Input Row */
+.goal-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.goal-number-box {
+  display: flex;
+  align-items: baseline;
+  background: #F3EEF9;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+}
+
+.goal-number-input {
+  border: none;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  width: 75px;
+  text-align: right;
+}
+
+.goal-number-unit {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-left: 4px;
+}
+
+/* Custom styled Range Slider */
+.goal-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #E8E2F4;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.goal-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--liquid-grad);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(110, 98, 229, 0.4);
+  border: 2.5px solid #FFFFFF;
+  transition: transform 0.15s ease;
+}
+
+.goal-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.goal-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--liquid-grad);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(110, 98, 229, 0.4);
+  border: 2.5px solid #FFFFFF;
+}
+
+/* Reminder Schedule Controls */
+.setting-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0 12px 0;
+  border-bottom: 1px solid #F3EFF8;
+  margin-bottom: 12px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #D9D4E8;
+  border-radius: 34px;
+  transition: 0.3s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--liquid-primary);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.time-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.time-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.field-select, .field-time {
+  padding: 10px 12px;
+  background: #F6F3FA;
+  border: 1px solid #EBE5F5;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.test-notif-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  background: #EEECFE;
+  color: var(--liquid-primary);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  transition: background 0.2s ease;
+}
+
+.test-notif-btn:hover {
+  background: #E2DEFD;
+}
+
+/* History Bar Chart (7 Days) */
+.history-bar-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 140px;
+  padding: 12px 0 6px 0;
+  position: relative;
+}
+
+.chart-day-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.chart-tooltip {
+  position: absolute;
+  top: -6px;
+  background: #211E4E;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.chart-bar-container {
+  width: 22px;
+  height: 90px;
+  background: #F0ECF8;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.chart-bar-fill {
+  width: 100%;
+  background: var(--liquid-grad);
+  border-radius: 12px;
+  transition: height 0.5s ease;
+}
+
+.chart-bar-fill.goal-met {
+  background: linear-gradient(180deg, #4ADE80 0%, #22C55E 100%);
+}
+
+.chart-day-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.chart-day-text.is-today {
+  color: var(--liquid-primary);
+  font-weight: 800;
+}
+
+/* Empty State Box */
+.empty-state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+  text-align: center;
+  gap: 10px;
+}
+
+.empty-state-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Log Timeline List */
+.log-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.log-timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #F9F7FD;
+  border-radius: var(--radius-md);
+}
+
+.log-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.log-item-time {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.log-item-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.log-item-del-btn {
+  color: #DC2626;
+  opacity: 0.6;
+  padding: 4px;
+  transition: opacity 0.2s;
+}
+
+.log-item-del-btn:hover {
+  opacity: 1;
+}
+
+/* --- Floating Bottom Navigation Bar --- */
+.bottom-nav-container {
+  position: absolute;
+  bottom: max(24px, calc(16px + env(safe-area-inset-bottom)));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 64px);
+  max-width: 320px;
+  height: 64px;
+  background: var(--bg-nav);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 14px;
+  box-shadow: var(--shadow-nav);
+  z-index: 30;
+}
+
+.nav-item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.55);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.nav-item-btn.active {
+  background: var(--bg-nav-active);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.nav-item-btn:hover {
+  color: #FFFFFF;
+}
+
+/* --- Modal Overlay & Dialog --- */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(28, 24, 60, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  z-index: 50;
+}
+
+.modal-dialog {
+  width: 100%;
+  background: #FFFFFF;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  padding: 24px 24px max(34px, env(safe-area-inset-bottom)) 24px;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F3EEF9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.custom-presets-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.preset-chip {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: var(--radius-md);
+  background: #F3EEF9;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.preset-chip.active,
+.preset-chip:hover {
+  background: var(--liquid-primary);
+  color: #FFFFFF;
+}
+
+.custom-input-box {
+  display: flex;
+  align-items: center;
+  background: #F6F3FA;
+  border: 2px solid #EBE5F5;
+  border-radius: var(--radius-lg);
+  padding: 12px 18px;
+  margin-bottom: 20px;
+}
+
+.custom-input-box:focus-within {
+  border-color: var(--liquid-primary);
+  background: #FFFFFF;
+}
+
+.custom-input-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.modal-confirm-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: var(--liquid-grad);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(110, 98, 229, 0.35);
+}
+
+/* --- Toast Undo Notification --- */
+.toast-container {
+  position: absolute;
+  top: max(20px, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  background: #211E4E;
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  padding: 10px 18px 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 26px rgba(30, 27, 75, 0.4);
+  z-index: 60;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 240px;
+  justify-content: space-between;
+}
+
+.toast-undo-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+
+.toast-undo-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
