@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hydrotrack-cache-v1';
+const CACHE_NAME = 'tarang-cache-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -8,7 +8,7 @@ const ASSETS_TO_CACHE = [
   '/icon-512.svg'
 ];
 
-const DB_NAME = 'hydrotrack_db';
+const DB_NAME = 'tarang_db';
 const DB_VERSION = 1;
 
 // --- IndexedDB Helper inside Service Worker ---
@@ -144,11 +144,11 @@ async function checkAndSendReminder() {
   ];
   const bodyText = quotes[Math.floor(Math.random() * quotes.length)];
 
-  await self.registration.showNotification('HydroTrack Reminder 💧', {
+  await self.registration.showNotification('Tarang Reminder 💧', {
     body: bodyText,
     icon: '/icon-192.svg',
     badge: '/icon-192.svg',
-    tag: 'hydrotrack-reminder',
+    tag: 'tarang-reminder',
     renotify: true,
     data: {
       url: '/',
@@ -205,7 +205,7 @@ self.addEventListener('fetch', (event) => {
 
 // Periodic Sync (for supported browsers)
 self.addEventListener('periodicsync', (event) => {
-  if (event.tag === 'hydrotrack-reminder-check') {
+  if (event.tag === 'tarang-reminder-check') {
     event.waitUntil(checkAndSendReminder());
   }
 });
@@ -223,11 +223,11 @@ self.addEventListener('message', (event) => {
     event.waitUntil(checkAndSendReminder());
   } else if (event.data.type === 'TRIGGER_TEST_NOTIFICATION') {
     event.waitUntil(
-      self.registration.showNotification('HydroTrack 💧 (Test Notification)', {
+      self.registration.showNotification('Tarang 💧 (Test Notification)', {
         body: 'Notifications are working perfectly! You will receive regular hydration reminders.',
         icon: '/icon-192.svg',
         badge: '/icon-192.svg',
-        tag: 'hydrotrack-test',
+        tag: 'tarang-test',
         renotify: true,
         data: { url: '/' },
         actions: [
@@ -237,7 +237,6 @@ self.addEventListener('message', (event) => {
       })
     );
   } else if (event.data.type === 'SYNC_SCHEDULE') {
-    // Schedule updated, run immediate check if needed
     if (event.data.immediate) {
       event.waitUntil(checkAndSendReminder());
     }
@@ -255,7 +254,7 @@ self.addEventListener('notificationclick', (event) => {
           body: 'Added +250 ml to your daily hydration.',
           icon: '/icon-192.svg',
           badge: '/icon-192.svg',
-          tag: 'hydrotrack-confirm',
+          tag: 'tarang-confirm',
           silent: true
         });
       })

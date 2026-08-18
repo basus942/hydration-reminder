@@ -1,7 +1,7 @@
-const DB_NAME = 'hydrotrack_db';
+const DB_NAME = 'tarang_db';
 const DB_VERSION = 1;
-const STORAGE_LOGS_KEY = 'hydrotrack_logs_v1';
-const STORAGE_SETTINGS_KEY = 'hydrotrack_settings_v1';
+const STORAGE_LOGS_KEY = 'tarang_logs_v1';
+const STORAGE_SETTINGS_KEY = 'tarang_settings_v1';
 
 export const DEFAULT_SETTINGS = {
   daily_goal_ml: 2000,

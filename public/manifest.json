@@ -1,7 +1,7 @@
 {
-  "name": "HydroTrack — Water Tracker",
-  "short_name": "HydroTrack",
-  "description": "Daily water intake tracker with reminders, offline support, and visual progress.",
+  "name": "Tarang — Water Tracker",
+  "short_name": "Tarang",
+  "description": "Daily water intake tracker with smart reminders, offline support, and visual progress.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F3EEF9",

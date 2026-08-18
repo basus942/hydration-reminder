@@ -16,7 +16,7 @@ export async function registerServiceWorker() {
       try {
         const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
         if (status.state === 'granted') {
-          await reg.periodicSync.register('hydrotrack-reminder-check', {
+          await reg.periodicSync.register('tarang-reminder-check', {
             minInterval: 15 * 60 * 1000 // 15 minutes minimum
           });
         }
@@ -63,11 +63,11 @@ export async function sendTestNotification() {
     if ('serviceWorker' in navigator) {
       const reg = await navigator.serviceWorker.ready;
       if (reg && reg.showNotification) {
-        reg.showNotification('HydroTrack 💧 (Test Notification)', {
+        reg.showNotification('Tarang 💧 (Test Notification)', {
           body: 'Notifications are working! You will receive regular hydration reminders.',
           icon: '/icon-192.svg',
           badge: '/icon-192.svg',
-          tag: 'hydrotrack-test',
+          tag: 'tarang-test',
           renotify: true,
           data: { url: '/' },
           actions: [
@@ -85,7 +85,7 @@ export async function sendTestNotification() {
   // Fallback if supported
   try {
     if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
-      new Notification('HydroTrack 💧 (Test Notification)', {
+      new Notification('Tarang 💧 (Test Notification)', {
         body: 'Notifications are working! You will receive daily hydration reminders.',
         icon: '/icon-192.svg'
       });
